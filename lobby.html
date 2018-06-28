@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <Title>Welcome!</Title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="lobby-style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/kraftwerk28/bubble-web/master/style.css">
-  <!-- <link rel="stylesheet" href="/home/kraftwerk28/d/JS/bubble-web/style.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/kraftwerk28/bubble-web/master/style.css"> -->
+  <link rel="stylesheet" href="/home/kraftwerk28/d/JS/bubble-web/style.css">
 
   <link rel="stylesheet" href="https://rawgit.com/kraftwerk28/gravity-simulator/master/canvas.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,24 +26,24 @@
       <table>
         <tr>
           <td>
-            <div class="activity wave-effect" onclick="showGames()">
+            <div class="activity wave" onclick="showGames()">
               <p>Games</p>
             </div>
           </td>
           <td>
-            <div class="activity left wave-effect" onclick="showGames()">
+            <div class="activity left wave" onclick="showGames()">
               <p>Projects</p>
             </div>
           </td>
         </tr>
         <tr>
           <td>
-            <div class="activity wave-effect" onclick="showGames()">
+            <div class="activity wave" onclick="showGames()">
               <p>Modelling</p>
             </div>
           </td>
           <td>
-            <div class="activity left wave-effect" onclick="showGames()">
+            <div class="activity left wave" onclick="showGames()">
               <p>Other</p>
             </div>
           </td>
@@ -50,7 +51,7 @@
       </table>
     </div>
     <div id="bottom">
-      <button class="wave-effect" color="transparent" id="showabout" onclick="showabout();">
+      <button class="wave" color="transparent" id="showabout" onclick="showabout();">
         <span>about</span>
         <i class="material-icons">arrow_downward</i>
       </button>
@@ -59,33 +60,45 @@
   <div id="about">
     <p>Hello world, my name is Vsevolod Ambros (kraftwerk28). First of all, I love gaming, that means playing and creating computer
       games. Three years or Unity3D experience.</p>
+    <div class="dropdown">
+      <ul>
+        <li>ji</li>
+        <li>ji</li>
+        <li>ji</li>
+      </ul>
+    </div>
+    <button class="wave"></button>
   </div>
 
   <div class="popup">
     <div>
-      <button class="circle wave-effect" color="transparent">
+      <button class="circle wave" color="transparent">
         <i class="material-icons">arrow_back</i>
       </button>
-      <button>GAMES</button>
+      <br>
+      <button class="wave">GAMES</button>
       <br>
       <a href="kraftwerk28.pp.ua:8090">Hav-io</a>
-    </div>
-  </div>
-  <div class="popup">
-    <div>
-      <button class="circle wave-effect" color="transparent">
+      <button class="circle wave" color="transparent">
         <i class="material-icons">arrow_back</i>
-        <label class="radio" name="aaa">Lol</label>
-        <br>
-        <label class="radio" name="aaa">Kek</label>
-        <br>
-        <label class="radio" name="aaa">4eburek</label>
       </button>
     </div>
   </div>
   <div class="popup">
     <div>
-      <button class="circle wave-effect" color="transparent">
+      <button class="circle wave" color="transparent">
+        <i class="material-icons">arrow_back</i>
+      </button>
+      <label class="radio" name="aaa">Lol</label>
+      <br>
+      <label class="radio" name="aaa">Kek</label>
+      <br>
+      <label class="radio" name="aaa">4eburek</label>
+    </div>
+  </div>
+  <div class="popup">
+    <div>
+      <button class="circle wave" color="transparent">
         <i class="material-icons">arrow_back</i>
       </button>
       <img src="https://github.com/kraftwerk28.png" alt="">
@@ -93,7 +106,7 @@
   </div>
   <div class="popup">
     <div>
-      <button class="circle wave-effect" color="transparent">
+      <button class="circle wave" color="transparent">
         <i class="material-icons">arrow_back</i>
       </button>
       <span style="font-size: 400%">Nothing here...</span>
@@ -103,8 +116,8 @@
 
 
   <!-- <script src="/home/kraftwerk28/d/JS/bubble-web/bubble.js"></script> -->
-  <!-- <script src="/home/kraftwerk28/d/JS/gravity-simulator/engine.js"></script> -->
-  <script src="https://rawgit.com/kraftwerk28/gravity-simulator/master/engine.js"></script>
+  <script src="/home/kraftwerk28/d/JS/gravity-simulator/engine.js"></script>
+  <!-- <script src="https://rawgit.com/kraftwerk28/gravity-simulator/master/engine.js"></script> -->
   <script src="https://rawgit.com/kraftwerk28/bubble-web/master/bubble.js"></script>
   <script src="lobby.js"></script>
 </body>

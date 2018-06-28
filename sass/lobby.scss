@@ -3,6 +3,7 @@ $radius: 10px;
 * {
   color: white;
   font-family: 'Roboto Mono', monospace;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -11,6 +12,10 @@ body {
   overflow-x: hidden;
 
   // overflow: hidden;
+}
+
+button {
+  position: relative;
 }
 
 ::-webkit-scrollbar {
@@ -64,8 +69,7 @@ p {
 
 .activity {
   position: relative;
-  display: flex;
-  flex-direction: row;
+  
   flex: 1;
   border: 3px solid lime;
   border-radius: 5px;
@@ -97,8 +101,9 @@ p {
 
 #title {
   overflow: hidden;
+  white-space: nowrap;
   text-align: center;
-  font-size: xx-large;
+  font-size: 6vmin;
   border-bottom: 3px solid lime;
   border-right: 3px solid lime;
   border-left: 3px solid lime;
@@ -129,6 +134,7 @@ p {
   height: 40px;
 
   button {
+    position: relative;
     min-height: inherit;
     z-index: 5;
 
@@ -140,7 +146,7 @@ p {
 
 .popup {
   // @extend wall;
-  display: block;
+  // display: block;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -206,12 +212,6 @@ p {
   }
 }
 
-// .right {
-//   @extend %main;
-
-//   background-color: crimson;
-//   width: 25%;
-// }
 
 .glitch {
   position: relative;

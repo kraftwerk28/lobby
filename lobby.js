@@ -8,8 +8,10 @@ canvas.height = 2 * window.innerHeight;
 
 window.onscroll = (e) => {
   const st = window.scrollY;
-  if ((st > oldScroll && firstView) || (st < oldScroll && !firstView))
+  if ((st > oldScroll && firstView) || (st < oldScroll && !firstView)) {
+    e.preventDefault();
     switchlayout();
+  }
 
   oldScroll = st;
 };
