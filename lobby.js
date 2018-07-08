@@ -1,27 +1,45 @@
 'use strict';
 
 const switcher = document.getElementById('bottom');
+const loadmask = document.getElementById('loadmask');
 let firstView = true;
 let oldScroll = 0;
 let aboutHasBeenTyped = false;
-canvas.height = 2 * window.innerHeight;
+const isMobile = (typeof window.orientation !== "undefined") ||
+  (navigator.userAgent.indexOf('IEMobile') !== -1);
+console.log(isMobile);
+canvas.height;
 
-window.onscroll = (e) => {
+window.addEventListener('load', () => {
+  loadmask.style.opacity = 0;
+  setInterval(() => { loadmask.style.display = 'none'; }, 1000);
+});
+
+window.addEventListener('scroll', (e) => {
+  // if (isMobile) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   console.log('object');
+  //   return;
+  // }
   const st = window.scrollY;
   if ((st > oldScroll && firstView) || (st < oldScroll && !firstView)) {
     e.preventDefault();
     switchlayout();
   }
-
   oldScroll = st;
-};
+});
 
-window.onwheel = (e) => {
+if (isMobile)
+  window.addEventListener('touchmove', (e) => {
+    e.preventDefault()
+  });
+
+window.addEventListener('wheel', (e) => {
   if ((e.deltaY > 0 && firstView) || (e.deltaY < 0 && !firstView)) {
     switchlayout();
   }
-};
-
+});
 
 const switchlayout = () => {
   firstView = !firstView;
@@ -55,7 +73,7 @@ const showPopup = (el) => {
 
 const typePortfolio = () => {
   const portfolio = document.getElementById('about');
-  const blocks = portfolio.getElementsByTagName('p');
+  const blocks = portfolio.children;
   const texts = Array.prototype.map.call(blocks, t => {
     const tt = t.textContent;
     t.textContent = '';
@@ -74,7 +92,7 @@ const typePortfolio = () => {
         clearInterval(t);
         type(++i);
       }
-    }, 10);
+    }, 15);
   };
   type(0);
 };

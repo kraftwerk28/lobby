@@ -14,7 +14,11 @@ button {
   display: none; }
 
 p {
-  text-indent: 10px; }
+  text-indent: 10px;
+  display: inline; }
+
+a {
+  cursor: pointer; }
 
 #gravity-simulator {
   filter: blur(2px); }
@@ -52,7 +56,9 @@ p {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  z-index: 0; }
+  z-index: 0;
+  cursor: pointer;
+  padding: 20px; }
   .activity > p {
     font-size: x-large; }
   .activity:hover {
@@ -114,8 +120,8 @@ p {
   z-index: 20;
   display: none; }
   .popup > div {
-    width: 90vmin;
-    height: 90%;
+    width: 100vmin;
+    height: 100vmin;
     top: 50%;
     transform: translateY(-50%);
     border: 3px solid lime;
@@ -132,17 +138,17 @@ p {
     width: 20vmin;
     height: 20vmin; }
   50% {
-    width: 90vmin;
+    width: 100vmin;
     height: 20vmin; }
   100% {
-    width: 90vmin;
-    height: 90%; } }
+    width: 100vmin;
+    height: 100%; } }
 @keyframes hidePopup {
   0% {
-    width: 90vmin;
-    height: 90%; }
+    width: 100vmin;
+    height: 100%; }
   50% {
-    width: 90vmin;
+    width: 100vmin;
     height: 20vmin;
     opacity: 1; }
   100% {
@@ -175,45 +181,54 @@ p {
 
 @keyframes glitching1 {
   0% {
-    clip: rect(6px, 9999px, 2px, 0); }
+    clip: rect(20px, 9999px, 10px, 0); }
   10% {
-    clip: rect(27px, 9999px, 8px, 0); }
+    clip: rect(30px, 9999px, 4px, 0); }
   20% {
-    clip: rect(26px, 9999px, 18px, 0); }
+    clip: rect(20px, 9999px, 49px, 0); }
   30% {
-    clip: rect(12px, 9999px, 18px, 0); }
+    clip: rect(35px, 9999px, 29px, 0); }
   40% {
-    clip: rect(36px, 9999px, 23px, 0); }
+    clip: rect(22px, 9999px, 12px, 0); }
   50% {
-    clip: rect(35px, 9999px, 30px, 0); }
+    clip: rect(12px, 9999px, 36px, 0); }
   60% {
-    clip: rect(44px, 9999px, 36px, 0); }
+    clip: rect(25px, 9999px, 22px, 0); }
   70% {
-    clip: rect(10px, 9999px, 37px, 0); }
+    clip: rect(33px, 9999px, 6px, 0); }
   80% {
-    clip: rect(8px, 9999px, 29px, 0); }
+    clip: rect(22px, 9999px, 23px, 0); }
   90% {
-    clip: rect(28px, 9999px, 28px, 0); } }
+    clip: rect(6px, 9999px, 30px, 0); } }
 @keyframes glitching2 {
   0% {
-    clip: rect(42px, 9999px, 88px, 0); }
+    clip: rect(94px, 9999px, 33px, 0); }
   10% {
-    clip: rect(54px, 9999px, 12px, 0); }
+    clip: rect(88px, 9999px, 14px, 0); }
   20% {
-    clip: rect(35px, 9999px, 11px, 0); }
+    clip: rect(81px, 9999px, 9px, 0); }
   30% {
-    clip: rect(34px, 9999px, 34px, 0); }
+    clip: rect(39px, 9999px, 19px, 0); }
   40% {
-    clip: rect(98px, 9999px, 68px, 0); }
+    clip: rect(69px, 9999px, 65px, 0); }
   50% {
-    clip: rect(60px, 9999px, 62px, 0); }
+    clip: rect(24px, 9999px, 51px, 0); }
   60% {
-    clip: rect(83px, 9999px, 61px, 0); }
+    clip: rect(1px, 9999px, 78px, 0); }
   70% {
-    clip: rect(45px, 9999px, 21px, 0); }
+    clip: rect(13px, 9999px, 35px, 0); }
   80% {
-    clip: rect(18px, 9999px, 73px, 0); }
+    clip: rect(80px, 9999px, 44px, 0); }
   90% {
-    clip: rect(14px, 9999px, 83px, 0); } }
+    clip: rect(66px, 9999px, 87px, 0); } }
+#loadmask {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: black;
+  z-index: 100;
+  transition-duration: 1s; }
 
 /*# sourceMappingURL=lobby-style.css.map */

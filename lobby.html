@@ -12,9 +12,13 @@
   <link rel="stylesheet" href="https://rawgit.com/kraftwerk28/gravity-simulator/master/canvas.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <script src="https://rawgit.com/kraftwerk28/gravity-simulator/master/engine.js" defer></script>
+  <script src="https://rawgit.com/kraftwerk28/bubble-web/master/bubble.js" defer></script>
+  <script src="lobby.js" defer></script>
 </head>
 
 <body>
+  <div id="loadmask"></div>
   <canvas id="gravity-simulator"></canvas>
 
   <div id="main">
@@ -31,7 +35,7 @@
             </div>
           </td>
           <td>
-            <div class="activity left wave" onclick="showGames()">
+            <div class="activity wave" onclick="showGames()">
               <p>Projects</p>
             </div>
           </td>
@@ -58,16 +62,10 @@
     </div>
   </div>
   <div id="about">
-    <p>Hello world, my name is Vsevolod Ambros (kraftwerk28). First of all, I love gaming, that means playing and creating computer
-      games. Three years or Unity3D experience.</p>
-    <div class="dropdown">
-      <ul>
-        <li>ji</li>
-        <li>ji</li>
-        <li>ji</li>
-      </ul>
-    </div>
-    <button class="wave"></button>
+    <p>Hello world, my name is Vsevolod Ambros (</p>
+    <a target="_blank" href='http://t.me/kraftwerk28'>@kraftwerk28</a>
+    <p>). First of all, I love gaming, that means playing and creating computer games. Three years or Unity3D experience.
+    </p>
   </div>
 
   <div class="popup">
@@ -84,11 +82,13 @@
       </button>
     </div>
   </div>
+
   <div class="popup">
     <div>
       <button class="circle wave" color="transparent">
         <i class="material-icons">arrow_back</i>
       </button>
+      <br>
       <label class="radio" name="aaa">Lol</label>
       <br>
       <label class="radio" name="aaa">Kek</label>
@@ -96,6 +96,7 @@
       <label class="radio" name="aaa">4eburek</label>
     </div>
   </div>
+
   <div class="popup">
     <div>
       <button class="circle wave" color="transparent">
@@ -104,6 +105,7 @@
       <img src="https://github.com/kraftwerk28.png" alt="">
     </div>
   </div>
+
   <div class="popup">
     <div>
       <button class="circle wave" color="transparent">
@@ -117,9 +119,7 @@
 
   <!-- <script src="/home/kraftwerk28/d/JS/bubble-web/bubble.js"></script> -->
   <!-- <script src="/home/kraftwerk28/d/JS/gravity-simulator/engine.js"></script> -->
-  <script src="https://rawgit.com/kraftwerk28/gravity-simulator/master/engine.js"></script>
-  <script src="https://rawgit.com/kraftwerk28/bubble-web/master/bubble.js"></script>
-  <script src="lobby.js"></script>
+  
 </body>
 
 </html>
