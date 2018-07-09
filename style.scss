@@ -10,7 +10,8 @@ $border: 3px solid lime;
 html, body {
   // pointer-events: none;
   margin: 0px;
-  overflow-x: hidden;
+  // overflow-y: hidden;
+  // overflow-x: hidden;
 
   // overflow: hidden;
 }
@@ -34,6 +35,8 @@ p {
 
 a {
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
 }
 
 #gravity-simulator {
@@ -159,7 +162,7 @@ $popup-width: 100vmin;
 $popup-height: 100%;
 
 .popup {
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   bottom: 0px;
@@ -224,6 +227,10 @@ $popup-height: 100%;
   }
 }
 
+.wave-div {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .glitch {
   position: relative;
 
@@ -283,5 +290,4 @@ $popup-height: 100%;
   right: 0px;
   background-color: black;
   z-index: 100;
-  transition-duration: 1s;
 }

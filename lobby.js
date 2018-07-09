@@ -1,16 +1,18 @@
 'use strict';
 
-const switcher = document.getElementById('bottom');
-const loadmask = document.getElementById('loadmask');
+const $ = (s) => document.getElementById(s);
+
+const switcher = $('bottom');
+const loadmask = $('loadmask');
+let currentPopup = null;
 let firstView = true;
 let oldScroll = 0;
 let aboutHasBeenTyped = false;
 const isMobile = (typeof window.orientation !== "undefined") ||
   (navigator.userAgent.indexOf('IEMobile') !== -1);
-console.log(isMobile);
-canvas.height;
 
 window.addEventListener('load', () => {
+  loadmask.style.transitionDuration = '1s';
   loadmask.style.opacity = 0;
   setInterval(() => { loadmask.style.display = 'none'; }, 1000);
 });
@@ -24,11 +26,18 @@ window.addEventListener('scroll', (e) => {
   oldScroll = st;
 });
 
-if (isMobile) {
-  window.addEventListener('touchstart', (e) => {
-    e.preventDefault()
-  });
-}
+document.addEventListener('backbutton', (e) => {
+  if (currentPopup) {
+    e.preventDefault();
+    hidePopup(currentPopup);
+  }
+});
+
+// if (isMobile) {
+//   window.addEventListener('touchstart', (e) => {
+//     e.preventDefault()
+//   });
+// }
 
 window.addEventListener('wheel', (e) => {
   if ((e.deltaY > 0 && firstView) || (e.deltaY < 0 && !firstView)) {
@@ -62,8 +71,19 @@ const showabout = () => {
 };
 
 const showPopup = (el) => {
+  currentPopup = el;
   el.style.display = 'block';
   el.firstElementChild.style.animationName = 'showPopup';
+};
+
+const hidePopup = (el) => {
+  const div = el.firstElementChild;
+  div.style.animationName = 'hidePopup';
+  el.showing = false;
+  setTimeout(() => {
+    el.style.display = 'none';
+  }, 500);
+  currentPopup = null;
 };
 
 const typePortfolio = () => {
@@ -99,11 +119,11 @@ Array.prototype.forEach.call(popups, (el) => {
   const close = div.firstElementChild;
   close.onclick = (e) => {
     e.preventDefault();
-    div.style.animationName = 'hidePopup';
-    el.showing = false;
-    setTimeout(() => {
-      el.style.display = 'none';
-    }, 500);
+    hidePopup(el);
+  };
+  el.onclick = (e) => {
+    if (e.target === el)
+      hidePopup(el);
   };
 });
 
