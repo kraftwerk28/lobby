@@ -16,12 +16,6 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('scroll', (e) => {
-  // if (isMobile) {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   console.log('object');
-  //   return;
-  // }
   const st = window.scrollY;
   if ((st > oldScroll && firstView) || (st < oldScroll && !firstView)) {
     e.preventDefault();
@@ -30,10 +24,11 @@ window.addEventListener('scroll', (e) => {
   oldScroll = st;
 });
 
-if (isMobile)
-  window.addEventListener('touchmove', (e) => {
+if (isMobile) {
+  window.addEventListener('touchstart', (e) => {
     e.preventDefault()
   });
+}
 
 window.addEventListener('wheel', (e) => {
   if ((e.deltaY > 0 && firstView) || (e.deltaY < 0 && !firstView)) {

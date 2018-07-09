@@ -7,12 +7,16 @@ $border: 3px solid lime;
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
+html, body {
   // pointer-events: none;
   margin: 0px;
   overflow-x: hidden;
 
   // overflow: hidden;
+}
+
+body {
+  position: relative;
 }
 
 button {
