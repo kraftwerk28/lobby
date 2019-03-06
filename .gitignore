@@ -63,3 +63,4 @@ typings/
 kata.js
 .sass-cache/
 .vscode/
+*.css.map

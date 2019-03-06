@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    input {
+      position: absolute;
+      top: 100px;
+    }
+
+    #root {
+      display: flex;
+      position: fixed;
+      bottom: 0px;
+      background-color: coral;
+      padding: 10px;
+      height: 50px;
+      max-height: max-content;
+      flex-direction: column-reverse;
+      overflow: visible;
+    }
+
+    #child1 {
+      background-color: darkcyan;
+      height: 200px;
+      width: 40px;
+    }
+
+    #child2 {
+      background-color: darkviolet;
+      height: 20px;
+      width: 40px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <input id="input" type="range" min="0" max="200" step="1">
+  <div id="root">
+    <div id="child1"></div>
+    <div id="child2"></div>
+  </div>
+  <script>
+    const i = document.getElementById('input');
+    i.addEventListener('input', () => {
+      document.getElementById('child1').style.height = i.value + 'px';
+    });
+  </script>
+</body>
+
+</html>

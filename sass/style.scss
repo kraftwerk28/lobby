@@ -1,0 +1,452 @@
+$page-width: 100vmin;
+$radius: 10px;
+$border: 3px solid lime;
+$title-offset: 70px;
+$stroke-dashlength: 10;
+$stroke-spacelength: 5;
+
+* {
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+html, body {
+  margin: 0px;
+}
+
+html {}
+
+body {
+  position: absolute;
+  overscroll-behavior: contain;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  text-indent: 10px;
+  display: inline;
+}
+
+a {
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+}
+
+#gravity-simulator {
+  filter: blur(2px);
+}
+
+%wall {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  width: $page-width;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+}
+
+#main2 {
+  position: fixed;
+  display: flex;
+  height: calc(100% - $title-offset + 200px);
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: $page-width;
+  overflow: visible;
+
+  /* flex config */
+  flex-direction: column-reverse;
+
+  // align-items: stretch;
+}
+
+#activities {
+  $distance: 3px;
+
+  // position: sticky;
+  // flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $distance;
+  padding: $distance;
+}
+
+.activity {
+  position: relative;
+  flex: 1;
+
+  // display: flex;
+
+  // border: 3px solid lime;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  cursor: pointer;
+  padding: 0px;
+  user-select: none;
+
+  > .wave-div {
+    background-color: rgba(0, 255, 0, 0.2) !important;
+  }
+
+  > div:first-of-type {
+    font-size: x-large;
+
+    // margin: 20px;
+    padding: 20px;
+    z-index: 30;
+    background: black;
+    color: yellow;
+  }
+
+  &:hover {
+    // transform: scale(1.01);
+    grid-template: 100px;
+
+    // background-color: black;
+    z-index: 10 !important;
+  }
+
+  > svg {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    > rect {
+      x: 0;
+      y: 0;
+      fill: transparent;
+      stroke: lime;
+      stroke-width: 6px;
+      stroke-dasharray: $stroke-dashlength $stroke-spacelength;
+      stroke-miterlimit: 500;
+    }
+  }
+
+  &:hover > svg > rect {
+    animation: run .2s linear 0s infinite;
+  }
+
+  @keyframes run {
+    from {
+      stroke-dashoffset: $stroke-dashlength + $stroke-spacelength;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+.carousel {
+  position: absolute;
+  height: 80%;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  margin: 5px;
+
+  // background: url(havio.gif);
+  background-size: cover;
+
+  // box-shadow: inset 0px 20px 20px #000;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(black, transparent 10%);
+  }
+}
+
+#toggle-view {
+  position: absolute;
+  left: 50%;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  margin: 0px;
+
+  // bottom: 0px;
+  transform: translateX(-50%);
+
+  i {
+    color: white;
+    width: 40px;
+  }
+}
+
+#about {
+  @extend %wall;
+
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 3px solid lime;
+  border-radius: 10px;
+  height: 0px;
+  overflow: hidden;
+  transition: height .5s ease-out;
+
+  > div:nth-child(2) {
+    visibility: hidden;
+  }
+}
+
+#title {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: $page-width;
+  height: 65px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 6vmin;
+  background-color: black;
+  z-index: 19;
+  border-bottom: 3px solid lime;
+  border-right: 3px solid lime;
+  border-left: 3px solid lime;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+
+  span {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: normal;
+    vertical-align: bottom;
+    font-size: 150%;
+    font-weight: bolder;
+    line-height: 65px;
+    vertical-align: baseline;
+  }
+}
+
+#bottom-border {
+  position: fixed;
+  bottom: 0px;
+  width: $page-width;
+  height: 10px;
+  background-color: black;
+  z-index: 19;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+
+  > div {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 3px solid lime;
+    border-top: 0px;
+  }
+}
+
+#bottom {
+  font-size: x-large !important;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  transition-duration: 1s;
+  border-top: 3px solid lime;
+  border-left: 3px solid lime;
+  border-right: 3px solid lime;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  height: 45px;
+
+  button {
+    position: relative;
+    min-height: inherit;
+    z-index: 5;
+
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+$popup-width: 100vmin;
+$popup-height: 100%;
+
+.popup {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.95);
+  animation-duration: .5s;
+  animation-fill-mode: both;
+
+  > div {
+    @extend %wall;
+
+    // width: 100vw;
+    // height: $popup-width;
+    top: 0px;
+    bottom: 10px;
+    border: 3px solid lime;
+    border-radius: 10px;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    overflow: hidden;
+  }
+
+  z-index: 20;
+  display: none;
+
+  @keyframes showPopup {
+    from {
+      transform: scale(0.8) translateY(-100px);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes hidePopup {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    to {
+      transform: scale(.8) translateY(100px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes -showPopup {
+    0% {
+      width: 20vmin;
+      height: 20vmin;
+    }
+
+    50% {
+      width: $popup-width;
+      height: 20vmin;
+    }
+
+    100% {
+      width: $popup-width;
+      height: $popup-height;
+    }
+  }
+
+  @keyframes -hidePopup {
+    0% {
+      width: $popup-width;
+      height: $popup-height;
+    }
+
+    50% {
+      width: $popup-width;
+      height: 20vmin;
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      width: 1vmin;
+      height: 20vmin;
+    }
+  }
+}
+
+.material-icons {
+  font-size: xx-large !important;
+  color: white;
+}
+
+.wave-div {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+
+  // border: 5px solid lime !important;
+}
+
+.glitch {
+  position: relative;
+
+  &::before, &::after {
+    content: '@kraftwerk28';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    background-color: black;
+  }
+
+  &::before {
+    left: -4px;
+    width: 101%;
+
+    // color: aqua;
+    animation-name: glitching1;
+    text-shadow: 1px 0 red;
+  }
+
+  &::after {
+    right: -3px;
+    width: 101%;
+    text-shadow: -2px 0 blue;
+
+    // color: tomato;
+    animation-name: glitching2;
+  }
+}
+
+@keyframes glitching1 {
+  @for $i from 0 to 10 {
+    #{percentage($i * 1 / 10)} {
+      clip: rect(random(50) + px, 9999px, random(50) + px, 0);
+    }
+  }
+}
+
+@keyframes glitching2 {
+  @for $i from 0 to 10 {
+    #{percentage($i * 1 / 10)} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+    }
+  }
+}
+
+#loadmask {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: black;
+  z-index: 100;
+}

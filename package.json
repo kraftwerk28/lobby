@@ -1,0 +1,30 @@
+{
+  "name": "lobby",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lobby.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass:./ --style compressed",
+    "go": "webpack",
+    "serve": "webpack-dev-server --host 0.0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kraftwerk28/lobby.git"
+  },
+  "author": "kraftwerk28",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kraftwerk28/lobby/issues"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
